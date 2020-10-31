@@ -68,7 +68,7 @@ def LISTE_TO_PILE(L):
 """
 'CH in OPERATIONS' (ligne 74) » complexité de O(n) avec n la longeur de la liste OPERATIONS (ligne 3)
 'CH in FUNCTIONS' (ligne 75) » complexité de O(n) avec n la longeur de la liste FUNCTIONS (ligne 4)
-On a donc une complexité de: O(len(OPERATIONS)*len(FUNCTIONS))
+On a donc une complexité de: O(len(OPERATIONS)+len(FUNCTIONS))
 """
 def TYPE(CH):
     if CH in OPERATIONS:
@@ -110,6 +110,9 @@ def CALC_OP(N1, OP, N2):
 """
 Complexité de O(n)
 La boucle for est executé n fois avec n la longeur de la pile exp
+Les fonctions VIDE, EMPILER, DEPILER, TYPE, CALC_OP ont toutes pour complexité O(1) ce qui est négigable
+Seul CALC_FONC a une complexité de O(len(OPERATIONS)+len(FUNCTIONS)) ce qui est négligable aussi en raison de la taille
+de ses deux tableau ayant respectivement une taille de 5 et 4.
 """
 def CALC_EXP(EXP, n):
     pile = VIDE()
@@ -145,17 +148,16 @@ def CALC_EXP(EXP, n):
 
 """
 Pour mettre n'impotre quel valeur postefixé rapidement, on peutrentrer les valeurs dans la console,
-on peut enlevé le commentaire ligne 153 et 154 puis mettre en commentaire la ligne 152
+on peut enlevé le commentaire ligne 156 et 157 puis mettre en commentaire la ligne 155
 Autrement, il faudra rentrer comme valeur dans la console ceci pour avoir le résultat de l'exercice: 2 5 + 4 5 3 + 2 ^ * √ *
-Complexité de O(n) pour la ligne 151
 """
 liste = ["2", "5", "+", "4", "5", "3", "+", "2", "^", "*", "√", "*"]
 #liste = input("Entrez une expression postfixé: ")
 #liste = liste.split(" ")
 
 """
-Complexité de O(n) pour la ligne 160 afin de retourner la pile pour éviter dans la fonction "LISTE_TO_PILE"
-d'avoir à dépiler la pile dans une autre
+Complexité de O(n) pour la ligne 162 afin de retourner la pile pour éviter dans la fonction "LISTE_TO_PILE"
+d'avoir à dépiler la pile dans une autre pour la remettre dans le bon sens
 """
 liste = reversed(liste) 
 L = LISTE_TO_PILE(liste)
